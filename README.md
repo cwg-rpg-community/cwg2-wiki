@@ -19,6 +19,8 @@ Cloudflare Worker `cwg2-wiki` (`wrangler.jsonc`, `src/worker.js`), on the shared
 
 The site is static and uses hash routing (`#items`, `#zones/...`) and relative file paths, so the Worker only strips the `/wiki` prefix and serves the repo's files as static assets. `.assetsignore` keeps repo-only files (`src/`, `docs/`, this README, `wrangler.jsonc`, ...) off the site. There is no workers.dev address.
 
+Maintenance mode: switched in the admin panel (Development → Wiki). The Worker asks the leaderboard Worker (service binding `LEADERBOARD`) at most every 10 seconds and, while it's on, shows `src/maintenance.html` (HTTP 503) on every page. Preview: https://cwg.echowrought.com/wiki/maintenance. Deploy the leaderboard first (it answers `/api/maintenance-status`).
+
 ```sh
 npm install
 npx wrangler deploy        # or: npm run deploy

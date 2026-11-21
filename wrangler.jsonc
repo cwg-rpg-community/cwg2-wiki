@@ -19,6 +19,8 @@
     { "pattern": "cwg.echowrought.com/wiki/*", "zone_name": "echowrought.com" }
   ],
   // Only on cwg.echowrought.com: no workers.dev address and no workers.dev preview URLs.
+  // The leaderboard Worker answers whether the wiki's maintenance switch is on (it owns the database).
+  "services": [{ "binding": "LEADERBOARD", "service": "cwg2-leaderboard" }],
   "workers_dev": false,
   "preview_urls": false,
   "observability": { "enabled": true }
