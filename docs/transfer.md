@@ -1,6 +1,6 @@
 # How to transfer my local settings from the original wiki
 
-Use these instructions to transfer your saved settings from the original wiki, https://cwg-rpg.github.io/, to this copy: https://cwg-rpg-wiki.github.io/.
+Use these instructions to transfer your saved settings from an old wiki address to the wiki's current address, https://cwg.echowrought.com/wiki/. The old address is either the original wiki, https://cwg-rpg.github.io/, or the previous copy, https://cwg-rpg-wiki.github.io/. Use the one you saved your settings on.
 
 Use the same browser and profile you previously used for the original wiki, not a private/incognito window.
 
@@ -10,7 +10,7 @@ Use the same browser and profile you previously used for the original wiki, not 
 - Never paste console code you do not understand. If you are unsure what a step does, please stop.
 
 **Instructions:**
-1. Open https://cwg-rpg.github.io/. Even if it shows a 404 error, your browser can still retain the settings saved for that origin.
+1. Open the old address (https://cwg-rpg.github.io/ or https://cwg-rpg-wiki.github.io/). Even if it shows a 404 error, your browser can still retain the settings saved for that origin.
 2. Press F12 to open web developer tools
 3. Open the "Console" tab
 4. Paste the following script and press enter
@@ -18,7 +18,7 @@ Use the same browser and profile you previously used for the original wiki, not 
     copy(JSON.stringify(localStorage))
     ```
     This copies your saved browser storage to the clipboard.
-5. Open https://cwg-rpg-wiki.github.io/
+5. Open https://cwg.echowrought.com/wiki/
 6. Press F12, open the "Console" tab
 7. Type `const data = ` in the Console, then paste the JSON copied in step 4 and press Enter. The result should look something like this (your keys and values will differ):
     ```js

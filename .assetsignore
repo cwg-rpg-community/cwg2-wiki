@@ -1,0 +1,15 @@
+# Repo files that aren't part of the website (not uploaded as static assets)
+.git
+.gitattributes
+.gitignore
+.assetsignore
+.wrangler
+.dev.vars
+node_modules
+src
+docs
+README.md
+package.json
+package-lock.json
+wrangler.jsonc
+fonts/README.md

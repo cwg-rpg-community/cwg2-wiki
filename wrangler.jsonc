@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // CWG RPG Wiki. Deploy with: npx wrangler deploy
+  "name": "cwg2-wiki",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-09-01",
+  // The site's files are the repo itself; .assetsignore keeps the repo-only files (src/, docs/, README, …) out.
+  // Every request goes to the Worker first so it can strip the /wiki prefix.
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  // Served at https://cwg.echowrought.com/wiki on the shared CWG domain (homepage at the root, leaderboard at
+  // /leaderboard, admin panel at /admin_panel). Routes win over the homepage's Custom Domain.
+  // cwg.echowrought.com needs a proxied DNS record in the echowrought.com zone (the homepage's Custom Domain makes it).
+  "routes": [
+    { "pattern": "cwg.echowrought.com/wiki", "zone_name": "echowrought.com" },
+    { "pattern": "cwg.echowrought.com/wiki/*", "zone_name": "echowrought.com" }
+  ],
+  // Only on cwg.echowrought.com: no workers.dev address and no workers.dev preview URLs.
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": { "enabled": true }
+}
